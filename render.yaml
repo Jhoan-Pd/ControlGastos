@@ -37,4 +37,3 @@ databases:
   - name: control-gastos-db
     plan: free
     databaseName: controlgastos
-    version: "15"
