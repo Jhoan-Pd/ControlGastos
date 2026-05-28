@@ -8,12 +8,14 @@ import com.finanzas.controlgastos.model.Usuario;
 import com.finanzas.controlgastos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UsuarioService implements IUsuarioService {
 
     @Autowired

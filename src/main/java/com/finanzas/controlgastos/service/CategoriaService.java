@@ -7,12 +7,14 @@ import com.finanzas.controlgastos.model.Categoria;
 import com.finanzas.controlgastos.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class CategoriaService implements ICategoriaService {
 
     @Autowired
