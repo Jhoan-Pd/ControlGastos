@@ -9,7 +9,8 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["vite/client"]
   },
   "include": ["src", "components", "pages", "services", "vite.config.ts"]
 }
