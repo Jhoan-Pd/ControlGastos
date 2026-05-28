@@ -30,8 +30,7 @@ services:
           name: control-gastos-db
           property: password
       - key: CORS_ORIGINS
-        # Actualizar con la URL real de Vercel después del primer deploy
-        value: https://control-gastos.vercel.app
+        value: https://control-gastos-2395.vercel.app,https://control-gastos-2395-b1z82b2e2-jhoan-paredes-projects.vercel.app
 
 databases:
   - name: control-gastos-db
