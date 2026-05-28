@@ -1,0 +1,8 @@
+target/
+frontend/
+.git/
+*.md
+.env*
+.classpath
+.project
+.settings/

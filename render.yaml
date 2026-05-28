@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: control-gastos-backend
+    runtime: docker
+    plan: free
+    branch: main
+    healthCheckPath: /api/usuarios
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      # Variables de la BD (Render las inyecta automáticamente desde la BD de abajo)
+      - key: DB_HOST
+        fromDatabase:
+          name: control-gastos-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: control-gastos-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: control-gastos-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: control-gastos-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: control-gastos-db
+          property: password
+      - key: CORS_ORIGINS
+        # Actualizar con la URL real de Vercel después del primer deploy
+        value: https://control-gastos.vercel.app
+
+databases:
+  - name: control-gastos-db
+    plan: free
+    databaseName: controlgastos
+    version: "15"
