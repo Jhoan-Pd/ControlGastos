@@ -15,12 +15,17 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
-        String[] origins = corsOrigins.split(",");
+        // Convierte las URLs exactas en patrones y añade comodín para Vercel
+        String[] exactOrigins = corsOrigins.split(",");
+        String[] patterns = new String[exactOrigins.length + 2];
+        System.arraycopy(exactOrigins, 0, patterns, 0, exactOrigins.length);
+        patterns[exactOrigins.length]     = "https://*.vercel.app";
+        patterns[exactOrigins.length + 1] = "http://localhost:[*]";
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins(origins)
+                        .allowedOriginPatterns(patterns)
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
